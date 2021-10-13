@@ -1,0 +1,27 @@
+{
+  "name": "Projeto-Tasks-Back-End",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GuilhermeOlavoLaux/Projeto-Tasks-Back-End.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GuilhermeOlavoLaux/Projeto-Tasks-Back-End/issues"
+  },
+  "homepage": "https://github.com/GuilhermeOlavoLaux/Projeto-Tasks-Back-End#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.10",
+    "nodemon": "^2.0.13"
+  }
+}
