@@ -11,5 +11,4 @@ function connectToDataBase() {
     db.once("open", () => console.log('Connected do DB 💽 ✅'))
 };
 
-
 module.exports = connectToDataBase;
