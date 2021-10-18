@@ -1,6 +1,6 @@
 const Tasks = require('../model/Tasks')
-const { response } = require('express')
-const { v4: uuid } = require('uuid')
+const { v4: uuid } = require('uuid');
+const res = require('express/lib/response');
 
 module.exports = {
     async getTasks(request, response) {
@@ -31,5 +31,28 @@ module.exports = {
             return response.status(400).json({ error: error.message })
 
         }
+    },
+
+    async updateTask(request, response) {
+        const { name, description } = request.body;
+        if (!name && !description) {
+            return response.status(400).json({ error: "You must inform a new name or a new description" })
+        }
+
+        if (name) {
+            request.task.name = name;
+        }
+        if (description) {
+            request.task.description = description;
+        }
+
+        try {
+            await response.video.save();
+            return response.status(200).json({ message: 'task updated successfully' })
+        } catch (error) {
+            res.status(500).json({ error: error.message })
+        }
+
+
     }
 } 
