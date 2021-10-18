@@ -1,12 +1,14 @@
 const express = require('express');
 const Task = require('../model/Tasks')
 const router = express.Router();
-const TaskCOntroller = require('../controller/taskController')
+const TaskController = require('../controller/taskController');
 
 router.get('/', (req, res) => {
-    res.send('so por deus');
+    res.send('teste');
 });
 
-router.get('/tasks', TaskCOntroller.getTasks)
+router.get('/tasks', TaskController.getTasks);
+
+router.post('/tasks', TaskController.postTask);
 
 module.exports = router;
