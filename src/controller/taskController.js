@@ -31,6 +31,7 @@ module.exports = {
             return response.status(400).json({ error: error.message })
 
         }
+
     },
 
     async updateTask(request, response) {
@@ -58,5 +59,17 @@ module.exports = {
 
             res.status(500).json({ error: error.message })
         }
+    },
+    async deleteTask(request, response){
+        try {
+            await response.task.remove();
+            return response.status(200).json({ message: "Task deleted successfully" })
+            
+        } catch (error) {
+            return response.status(500).json({ error: error })
+        }
     }
+
+
+
 } 

@@ -10,5 +10,8 @@ router.post('/tasks', TaskController.postTask);
 
 router.put('/tasks/:id', taskMidlleware.validateId, TaskController.updateTask);
 
+router.delete('/tasks/:id', taskMidlleware.validateId, TaskController.deleteTask);
+
+
 
 module.exports = router;
