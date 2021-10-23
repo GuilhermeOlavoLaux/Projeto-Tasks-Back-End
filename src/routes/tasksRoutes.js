@@ -4,10 +4,6 @@ const router = express.Router();
 const TaskController = require('../controller/taskController');
 const taskMidlleware = require('../midllewares/taskMidlleware');
 
-router.get('/', (req, res) => {
-    res.send('teste');
-});
-
 router.get('/tasks', TaskController.getTasks);
 
 router.post('/tasks', TaskController.postTask);

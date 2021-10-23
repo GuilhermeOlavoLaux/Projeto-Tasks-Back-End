@@ -34,25 +34,29 @@ module.exports = {
     },
 
     async updateTask(request, response) {
-        const { name, description } = request.body;
-        if (!name && !description) {
-            return response.status(400).json({ error: "You must inform a new name or a new description" })
-        }
-
-        if (name) {
-            request.task.name = name;
-        }
-        if (description) {
-            request.task.description = description;
-        }
-
         try {
-            await response.video.save();
+
+            const { name, description } = request.body;
+
+            if (!name && !description) {
+                return response.status(400).json({ error: "You must inform a new name or a new description" })
+            }
+
+            if (name) {
+                response.task.name = name;
+            }
+
+            if (description) {
+                response.task.description = description;
+            }
+
+            await response.task.save();
+
             return response.status(200).json({ message: 'task updated successfully' })
         } catch (error) {
+            console.error(error.stack)
+
             res.status(500).json({ error: error.message })
         }
-
-
     }
 } 
