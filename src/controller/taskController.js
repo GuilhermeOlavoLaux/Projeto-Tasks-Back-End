@@ -5,15 +5,15 @@ const res = require('express/lib/response');
 module.exports = {
     async getTasks(request, response) {
         try {
-            const tasks = await Tasks.find();
-            return response.status(200).json({ tasks })
+            const tasksList = await Tasks.find();
+            return response.status(200).json({ tasksList })
         } catch (error) {
             response.status(500).json({ error: error.message })
         }
     },
 
     async postTask(request, response) {
-        const { id, name, description } = request.body;
+        const {name, description } = request.body;
         if (!name || !description) {
             return response.status(400).json({ error: 'missing name or description.' })
         }
